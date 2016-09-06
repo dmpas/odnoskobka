@@ -48,7 +48,7 @@
   <ItemGroup>
     <ProjectReference Include="..\bracker\bracker.csproj">
       <Project>{EA173D06-CCD2-45D5-A263-DC866289517A}</Project>
-      <Name>Bracker</Name>
+      <Name>bracker</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

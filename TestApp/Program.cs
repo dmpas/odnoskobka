@@ -11,7 +11,7 @@ namespace TestApp
 			var engine = new HostedScriptEngine();
 			engine.Initialize();
 
-			engine.AttachAssembly(System.Reflection.Assembly.GetAssembly(typeof(Bracker.BrackerWriter)));
+			engine.AttachAssembly(System.Reflection.Assembly.GetAssembly(typeof(Bracker.BrackerWriterImpl)));
 
 			return engine;
 		}

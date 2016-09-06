@@ -21,7 +21,7 @@ namespace NUnitTests
         [Test]
         public void TestAsInternalObjects()
         {
-			var w = new BrackerWriter();
+			var w = new BrackerWriterImpl();
 			w.SetString();
 
 			w.WriteStartElement();

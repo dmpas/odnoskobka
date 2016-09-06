@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BrackerWriter.cs" />
+    <Compile Include="BrackerWriterImpl.cs" />
+    <Compile Include="BrackerReaderImpl.cs" />
+    <Compile Include="BrackerNodeTypeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
