@@ -19,34 +19,17 @@ namespace TestApp
 		public static void Main(string[] args)
 		{
 
-			const string SCRIPT = @"
-	З = Новый ЗаписьСкобаря;
-	З.ЗаписатьНачалоЭлемента();
-	З.ЗаписатьЗначение(""""""#"""""");
-	З.ЗаписатьЗначение(""Array"");
-	З.ЗаписатьЗначение(2);
-
-	З.ЗаписатьНачалоЭлемента();
-	З.ЗаписатьЗначение(""""""N"""""");
-	З.ЗаписатьЗначение(15);
-	З.ЗаписатьКонецЭлемента();
-
-	З.ЗаписатьНачалоЭлемента();
-	З.ЗаписатьЗначение(""""""D"""""");
-	З.ЗаписатьЗначение(Формат(ТекущаяДата(), ""ДФ=ггггММддЧЧммсс""));
-	З.ЗаписатьКонецЭлемента();
-
-	З.ЗаписатьКонецЭлемента();
-	Сообщить(З.Закрыть());
-			";
-
 			var engine = StartEngine();
-			var script = engine.Loader.FromString(SCRIPT);
-			var process = engine.CreateProcess(new MainClass(), script);
 
-			var result = process.Start();
+            var reader = new Bracker.BrackerReaderImpl();
+            reader.SetString("{\"N\",15}");
 
-			Console.WriteLine("Result = {0}", result);
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.ElementType);
+                Console.WriteLine(reader.Text);
+            }
+
 			Console.ReadLine();
 		}
 
