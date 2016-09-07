@@ -26,7 +26,9 @@ namespace Bracker
 
 		private void WriteLine()
 		{
-			w.WriteLine();
+			// TODO: Если пишем в строку, выводить \n. Если пишем в файл, выводить в зависимости от настроек.
+			// w.WriteLine();
+			w.Write('\n');
 			hasOpenBracket = false;
 			hasCloseBracket = false;
 		}
