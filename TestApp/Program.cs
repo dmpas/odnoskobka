@@ -1,5 +1,6 @@
 ﻿using System;
 using ScriptEngine.HostedScript;
+using ScriptEngine.HostedScript.Library;
 
 namespace TestApp
 {
@@ -21,19 +22,19 @@ namespace TestApp
 
 			var engine = StartEngine();
 
-            var reader = new Bracker.BrackerReaderImpl();
-            reader.SetString("{\"N\",15}");
+			var reader = new Bracker.BrackerReaderImpl();
+			reader.SetString("{\"N\",15}");
 
-            while (reader.Read())
-            {
-                Console.WriteLine(reader.ElementType);
-                Console.WriteLine(reader.Text);
-            }
+			while (reader.Read())
+			{
+				Console.WriteLine(reader.ElementType);
+				Console.WriteLine(reader.Text);
+			}
 
 			Console.ReadLine();
 		}
 
-		public void Echo(string str, EchoStatus status = EchoStatus.Undefined)
+		public void Echo(string str, MessageStatusEnum status = MessageStatusEnum.Ordinary)
 		{
 			Console.WriteLine(str);
 		}

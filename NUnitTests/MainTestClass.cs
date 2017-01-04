@@ -5,22 +5,22 @@ using Bracker;
 
 namespace NUnitTests
 {
-    [TestFixture]
-    public class MainTestClass
-    {
+	[TestFixture]
+	public class MainTestClass
+	{
 
-        private EngineHelpWrapper host;
+		private EngineHelpWrapper host;
 
-        [OneTimeSetUp]
-        public void Initialize()
-        {
-            host = new EngineHelpWrapper();
-            host.StartEngine();
-        }
+		[OneTimeSetUp]
+		public void Initialize()
+		{
+			host = new EngineHelpWrapper();
+			host.StartEngine();
+		}
 
-        [Test]
-        public void TestAsInternalObjects()
-        {
+		[Test]
+		public void TestAsInternalObjects()
+		{
 			var w = new BrackerWriterImpl();
 			w.SetString();
 
@@ -33,12 +33,12 @@ namespace NUnitTests
 
 			Assert.AreEqual(result.DataType, DataType.String);
 			Assert.AreEqual(result.AsString(), "{\"N\",15}");
-        }
+		}
 
-        [Test]
-        public void TestAsExternalObjects()
-        {
-            host.RunTestScript("NUnitTests.Tests.external.os");
-        }
-    }
+		[Test]
+		public void TestAsExternalObjects()
+		{
+			host.RunTestScript("NUnitTests.Tests.external.os");
+		}
+	}
 }

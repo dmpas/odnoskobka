@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Bracker
 {
 	[ContextClass("ЗаписьСкобаря", "BrackerWriter")]
-	public class BrackerWriterImpl : AutoContext<BrackerWriterImpl>
+	public sealed class BrackerWriterImpl : AutoContext<BrackerWriterImpl>
 	{
 		private readonly StringWriter w = new StringWriter();
 		private readonly Stack<int> _count = new Stack<int>();

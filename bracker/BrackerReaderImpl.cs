@@ -7,10 +7,8 @@ using System.Text;
 namespace Bracker
 {
 	[ContextClass("ЧтениеСкобаря", "BrackerReader")]
-	public class BrackerReaderImpl : AutoContext<BrackerReaderImpl>
+	public sealed class BrackerReaderImpl : AutoContext<BrackerReaderImpl>
 	{
-
-		private BrackerNodeTypeEnum nodeTypeEnum = BrackerNodeTypeEnum.CreateInstance();
 
 		private TextReader reader;
 		private int currentChar = -1;
@@ -44,7 +42,7 @@ namespace Bracker
 
 				if (c == '"')
 				{
-                    
+
 					do
 					{
 						sb.Append(c);
@@ -84,19 +82,19 @@ namespace Bracker
 
 			if (c == '{')
 			{
-				ElementType = nodeTypeEnum.StartElement;
+				ElementType = BrackerNodeTypeEnum.StartElement;
 				Text = "";
 				currentChar = reader.Read();
 			}
 			else if (c == '}')
 			{
-				ElementType = nodeTypeEnum.EndElement;
+				ElementType = BrackerNodeTypeEnum.EndElement;
 				Text = "";
 				currentChar = reader.Read();
 			}
 			else
 			{
-				ElementType = nodeTypeEnum.Text;
+				ElementType = BrackerNodeTypeEnum.Text;
 				Text = ReadValue();
 			}
 
@@ -104,7 +102,7 @@ namespace Bracker
 		}
 
 		[ContextProperty("ТипЭлемента", "ElementType")]
-		public IValue ElementType { get; private set; }
+		public BrackerNodeTypeEnum ElementType { get; private set; }
 
 		[ContextProperty("Текст", "Text")]
 		public string Text { get; private set; }
