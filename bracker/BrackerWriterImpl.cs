@@ -3,6 +3,7 @@ using ScriptEngine.Machine.Contexts;
 using ScriptEngine.Machine;
 using System.IO;
 using System.Collections.Generic;
+using ScriptEngine.HostedScript.Library;
 
 namespace Bracker
 {
@@ -82,6 +83,36 @@ namespace Bracker
 				WriteText(",");
 			}
 			WriteText(value);
+			_count.Push(currentCount + 1);
+		}
+
+		[ContextMethod("ЗаписатьМассив")]
+		public void WriteArray(ArrayImpl array, bool writeCount = false)
+		{
+			var currentCount = _count.Pop();
+			if (currentCount != 0)
+			{
+				WriteText(",");
+			}
+			WriteStartElement();
+			if (writeCount)
+			{
+				WriteValue(array.Count().ToString());
+			}
+
+			foreach (var value in array)
+			{
+				if (value is ArrayImpl)
+				{
+					WriteArray(value as ArrayImpl, writeCount);
+				}
+				else
+				{
+					WriteValue(value.AsString());
+				}
+			}
+
+			WriteEndElement();
 			_count.Push(currentCount + 1);
 		}
 
