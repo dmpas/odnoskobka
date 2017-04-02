@@ -28,7 +28,7 @@ namespace TestApp
 			while (reader.Read())
 			{
 				Console.WriteLine(reader.ElementType);
-				Console.WriteLine(reader.Text);
+				Console.WriteLine(reader.Value);
 			}
 
 			Console.ReadLine();
