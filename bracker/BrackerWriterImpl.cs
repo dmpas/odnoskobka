@@ -89,11 +89,6 @@ namespace Bracker
 		[ContextMethod("ЗаписатьМассив")]
 		public void WriteArray(ArrayImpl array, bool writeCount = false)
 		{
-			var currentCount = _count.Pop();
-			if (currentCount != 0)
-			{
-				WriteText(",");
-			}
 			WriteStartElement();
 			if (writeCount)
 			{
@@ -113,7 +108,6 @@ namespace Bracker
 			}
 
 			WriteEndElement();
-			_count.Push(currentCount + 1);
 		}
 
 		[ContextMethod("Закрыть", "Close")]
